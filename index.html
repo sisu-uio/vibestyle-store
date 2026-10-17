@@ -43,10 +43,29 @@
             --primary-color: #1a5edb !important;
             --main-color: #ffffff !important;
             --tp-theme-1: #1a5edb !important;
-            --tp-heading-primary: #ffffff !important;
+            --tp-heading-primary: #111111 !important;
+            --text-color: #4b5563 !important;
+            --heading-color: #111111 !important;
+            --subtitle-color: #6b7280 !important;
+            --body-background: #ffffff !important;
+            --border-color: #e5e7eb !important;
         }
 
-        /* 1. RESTAURAR MENÚ PRINCIPAL Y HEADER A SU ESTILO ORIGINAL (BLANCO / NEUTRO) */
+        body {
+            background: #ffffff !important;
+            color: #4b5563 !important;
+        }
+
+        /* 1. NAVBAR SUPERIOR: Barra oscura elegante con contraste nítido y menú original */
+        .main-header .header-upper,
+        .fixed-header .header-upper {
+            background: rgba(14, 14, 14, 0.95) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
         .main-header,
         .main-header .main-menu ul li a,
         .main-header .main-menu ul li a.linkstyle {
@@ -187,13 +206,65 @@
             filter: drop-shadow(0 4px 14px rgba(26, 94, 219, 0.75));
         }
 
-        /* Cabecera Principal Hero (#home) - Diseño Imponente y Minimalista */
+        /* Cabecera Principal Hero (#home) - Imagen Responsive Full Width con Degradado Naranja */
         .main-hero-area {
-            padding-top: 110px !important;
-            padding-bottom: 35px !important;
-            background: url(assets/images/custom/hero-bg.jpg) no-repeat top center / cover !important;
+            padding-top: 85px !important;
+            padding-bottom: 40px !important;
+            background: #120702 url(assets/images/custom/hero-bg.jpg) no-repeat top center / cover !important;
             position: relative;
             overflow: hidden;
+            width: 100% !important;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 15px auto !important;
+            padding: 0 !important;
+            overflow: hidden;
+            line-height: 0;
+            display: block;
+        }
+
+        .hero-head-img {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+            border-radius: 0 !important;
+            object-fit: cover !important;
+            object-position: center top !important;
+            -webkit-mask-image: none !important;
+            mask-image: none !important;
+            filter: none !important;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-head-img:hover {
+            transform: scale(1.008);
+        }
+
+        /* Degradado vertical suave inferior en tono naranja cálido */
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 22%;
+            pointer-events: none;
+            background: linear-gradient(
+                to bottom,
+                rgba(214, 93, 0, 0) 0%,
+                rgba(214, 93, 0, 0.08) 35%,
+                rgba(195, 76, 2, 0.3) 65%,
+                rgba(165, 54, 0, 0.68) 85%,
+                #120702 100%
+            );
         }
 
         .hero-content {
@@ -205,55 +276,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            margin: 0 auto 12px auto;
-            width: 100%;
-        }
-
-        .hero-image-desktop {
-            max-width: 860px;
-        }
-
-        .hero-head-img {
-            position: relative !important;
-            top: auto !important;
-            right: auto !important;
-            left: auto !important;
-            bottom: auto !important;
-            z-index: 1 !important;
-            height: auto !important;
-            margin: 0 auto !important;
-            border-radius: 0 !important;
-            object-fit: contain !important;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.9));
-            transition: transform 0.35s ease;
-        }
-
-        .hero-head-desktop {
-            width: 100% !important;
-            max-width: 860px !important;
-            -webkit-mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 28%, rgba(0, 0, 0, 0.9) 45%, rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.15) 85%, transparent 96%);
-            mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 28%, rgba(0, 0, 0, 0.9) 45%, rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.15) 85%, transparent 96%);
-        }
-
-        .hero-image-mobile {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 auto 8px auto;
-        }
-
-        .hero-head-mobile {
-            width: 100% !important;
-            max-width: 100% !important;
-            -webkit-mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 25%, rgba(0, 0, 0, 0.9) 42%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0.15) 82%, transparent 95%);
-            mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 25%, rgba(0, 0, 0, 0.9) 42%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0.15) 82%, transparent 95%);
-        }
-
-        .hero-head-img:hover {
-            transform: scale(1.015);
         }
 
         .hero-content h2 {
@@ -313,12 +335,6 @@
         }
 
         @media (min-width: 768px) and (max-width: 991px) {
-            .hero-image-wrapper,
-            .hero-image-desktop,
-            .hero-head-img,
-            .hero-head-desktop {
-                max-width: 680px !important;
-            }
             .hero-content h2 {
                 font-size: 38px !important;
                 line-height: 1.18 !important;
@@ -336,22 +352,17 @@
                 max-height: 32px !important;
             }
             .main-hero-area {
-                padding-top: 75px !important;
+                padding-top: 68px !important;
                 padding-bottom: 25px !important;
+            }
+            .hero-image-wrapper {
+                margin-bottom: 6px !important;
+            }
+            .hero-image-wrapper::after {
+                height: 25%;
             }
             .hero-content {
                 padding: 0 !important;
-            }
-            .hero-image-mobile {
-                width: 100% !important;
-                max-width: 100% !important;
-                margin: 0 auto 8px auto;
-            }
-            .hero-head-mobile {
-                width: 100% !important;
-                max-width: 100% !important;
-                -webkit-mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 25%, rgba(0, 0, 0, 0.9) 42%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0.15) 82%, transparent 95%);
-                mask-image: radial-gradient(ellipse 49% 47% at 50% 50%, #000000 0%, #000000 25%, rgba(0, 0, 0, 0.9) 42%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0.15) 82%, transparent 95%);
             }
             .hero-content h2 {
                 font-size: 38px !important;
@@ -734,42 +745,87 @@
             cursor: pointer;
         }
 
+        .swiper-pagination-3d .swiper-pagination-bullet {
+            background: rgba(0, 0, 0, 0.25) !important;
+        }
+
         .swiper-pagination-3d .swiper-pagination-bullet-active {
-            background: #fff;
+            background: #1a5edb !important;
             width: 24px;
             border-radius: 12px;
         }
 
-        /* Optimización compacta para Reseñas / Fit Check (#reviews) */
+        /* ==========================================================================
+           TEMA CLARO & LIMPIO: SECCIONES, TIPOGRAFÍAS Y CONTRASTE
+           ========================================================================== */
+        
+        /* FONDOS DE SECCIONES (Blanco puro y tonos limpios) */
+        .services-area,
+        .projects-area,
+        .blog-area,
+        .contact-area {
+            background: #ffffff !important;
+            background-image: none !important;
+        }
+
+        .testimonials-area,
+        .about-area,
+        .main-footer {
+            background: #f8f9fa !important;
+            background-image: none !important;
+        }
+
+        .main-footer {
+            border-top: 1px solid #e5e7eb !important;
+            padding-top: 70px !important;
+            padding-bottom: 30px !important;
+        }
+
+        /* TÍTULOS DE SECCIONES EN NEGRO PROFUNDO (#111111) */
+        .section-title h2,
+        .section-white-title h2,
+        .section-black-title h2 {
+            color: #111111 !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px !important;
+        }
+
+        .section-title .sub-title {
+            color: #6b7280 !important;
+        }
+
+        /* Reseñas / Fit Check (#reviews) con tarjetas claras y textos legibles */
         .testimonials-area {
-            padding-top: 55px !important;
-            padding-bottom: 55px !important;
+            padding-top: 60px !important;
+            padding-bottom: 60px !important;
         }
 
         .testimonial-item {
-            padding: 14px 16px !important;
+            padding: 16px 18px !important;
             margin-bottom: 16px !important;
             border-radius: 12px !important;
-            background: #161616 !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            background: #ffffff !important;
+            border: 1px solid #e5e7eb !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
             transition: all 0.3s ease !important;
         }
 
         .testimonial-item:hover {
-            border-color: rgba(255, 255, 255, 0.22) !important;
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
             transform: translateY(-2px) !important;
         }
 
         .testimonial-item .star-rating {
-            color: #ffc107;
+            color: #f59e0b !important;
             font-size: 11px !important;
             margin-bottom: 6px !important;
         }
 
         .testimonial-item .text {
             font-size: 13.5px !important;
-            line-height: 1.5 !important;
-            color: #b5b5b5 !important;
+            line-height: 1.55 !important;
+            color: #374151 !important;
             margin-bottom: 0 !important;
         }
 
@@ -783,15 +839,15 @@
             height: 34px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
-            border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+            border: 1.5px solid #e5e7eb !important;
         }
 
         .testimonial-item .testi-des h5 {
             font-size: 13.5px !important;
             margin-top: 0 !important;
             margin-bottom: 1px !important;
-            font-weight: 600 !important;
-            color: #ffffff !important;
+            font-weight: 700 !important;
+            color: #111111 !important;
             text-transform: none !important;
             letter-spacing: 0.2px;
         }
@@ -799,8 +855,164 @@
         .testimonial-item .testi-des span {
             font-size: 11px !important;
             line-height: 1.2 !important;
-            color: #25D366 !important;
+            color: #16a34a !important;
             display: block;
+            font-weight: 600 !important;
+        }
+
+        /* Drop Stories / Blog Cards (#blog) en fondo claro */
+        .blog-post-box {
+            background: #ffffff !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 14px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .blog-post-box:hover {
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-3px) !important;
+        }
+
+        .blog-post-caption h3 {
+            color: #6b7280 !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+        }
+
+        .blog-post-caption h2 a {
+            color: #111111 !important;
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
+            transition: color 0.2s ease !important;
+        }
+
+        .blog-post-caption h2 a:hover {
+            color: #1a5edb !important;
+        }
+
+        /* Nuestra Esencia (#about) */
+        .about-content-part p {
+            color: #374151 !important;
+            font-size: 16.5px !important;
+            line-height: 1.8 !important;
+        }
+
+        .hero-counter-area .count-text {
+            color: #111111 !important;
+            font-weight: 800 !important;
+        }
+
+        .hero-counter-area .counter-title {
+            color: #6b7280 !important;
+            font-weight: 600 !important;
+            margin-top: 6px !important;
+        }
+
+        /* Contacto Directo (#contact) */
+        .contact-content-part p {
+            color: #4b5563 !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+        }
+
+        .contact-content-part h2 {
+            color: #111111 !important;
+            font-weight: 800 !important;
+        }
+
+        .contact-content-part .single-contact h5,
+        .contact-content-part .text-white {
+            color: #111111 !important;
+            font-weight: 700 !important;
+        }
+
+        .about-social ul li a {
+            color: #111111 !important;
+            border: 2px solid #e5e7eb !important;
+            background: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .about-social ul li a:hover {
+            color: #ffffff !important;
+            background: #1a5edb !important;
+            border-color: #1a5edb !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .contact-form-area {
+            background: #ffffff !important;
+            border: 1px solid #e5e7eb !important;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 16px !important;
+        }
+
+        .contact-form-area h3,
+        .contact-form-area .text-white {
+            color: #111111 !important;
+        }
+
+        .contact-form-area p,
+        .contact-form-area span {
+            color: #4b5563 !important;
+        }
+
+        /* Footer */
+        .footer-top p {
+            color: #6b7280 !important;
+            font-size: 18px !important;
+        }
+
+        .footer-top h2 a {
+            color: #111111 !important;
+            font-weight: 800 !important;
+            transition: color 0.3s ease !important;
+        }
+
+        .footer-top h2 a:hover {
+            color: #1a5edb !important;
+        }
+
+        p.copy-left-text,
+        p.copy-right-text,
+        p.copy-right-text a {
+            color: #6b7280 !important;
+            transition: color 0.2s ease !important;
+        }
+
+        p.copy-right-text a:hover {
+            color: #1a5edb !important;
+        }
+
+        /* PRESERVACIÓN ESTRICTA DE TARJETAS DE PRODUCTOS (#projects) Y CARRUSEL (#services) */
+        .portfolio-box {
+            background-color: #111111 !important;
+        }
+
+        .portfolio-box .portfolio-caption * {
+            color: #ffffff !important;
+        }
+
+        .tf-card-box {
+            background: #181818 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .tf-card-box .meta-info .name,
+        .tf-card-box .meta-info .name a {
+            color: #ffffff !important;
+        }
+
+        .tf-card-box .meta-info .step-desc {
+            color: #a5a5a5 !important;
         }
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -897,19 +1109,16 @@
     <!-- // END MOBILE MENU DESIGN AREA-->
     <!-- START HEADER DESIGN AREA -->
     <section id="home" class="main-hero-area">
+        <!-- Hero Banner Full Width Responsive -->
+        <div class="hero-image-wrapper">
+            <img src="assets/images/about/hero-ecuador.jpg" alt="VibeStyle Caps - Hecho con alma ecuatoriana" class="hero-head-img">
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <!-- START HERO DESIGN AREA -->
                     <div class="hero-content wow fadeInUp text-center delay-0-2s">
-                        <!-- Hero Image Desktop (Web / PC) -->
-                        <div class="hero-image-wrapper hero-image-desktop d-none d-md-block">
-                            <img src="assets/images/about/head.jpg" alt="VibeStyle Caps Desktop" class="hero-head-img hero-head-desktop d-none d-md-block">
-                        </div>
-                        <!-- Hero Image Mobile (Celulares) -->
-                        <div class="hero-image-wrapper hero-image-mobile d-block d-md-none">
-                            <img src="assets/images/about/head-mobile.jpg" alt="VibeStyle Caps Mobile" class="hero-head-img hero-head-mobile d-block d-md-none">
-                        </div>
                         <h2>Streetwear &amp; <br>Exclusive Caps</h2>
                         <p>Diseño auténtico, siluetas clásicas y materiales de alta densidad para elevar tu estilo urbano.</p>
                         <div>
@@ -1187,7 +1396,7 @@
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author1.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2);" />
+                                <img src="assets/images/testimonials/author1.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
                             </div>
                             <div class="testi-des">
                                 <h5 style="margin: 0; font-size: 13.5px;">Carlos Mendoza</h5>
@@ -1208,7 +1417,7 @@
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author2.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2);" />
+                                <img src="assets/images/testimonials/author2.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
                             </div>
                             <div class="testi-des">
                                 <h5 style="margin: 0; font-size: 13.5px;">Valeria R.</h5>
@@ -1229,7 +1438,7 @@
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author3.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2);" />
+                                <img src="assets/images/testimonials/author3.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
                             </div>
                             <div class="testi-des">
                                 <h5 style="margin: 0; font-size: 13.5px;">Mateo Silva</h5>
@@ -1250,7 +1459,7 @@
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author4.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2);" />
+                                <img src="assets/images/testimonials/author4.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
                             </div>
                             <div class="testi-des">
                                 <h5 style="margin: 0; font-size: 13.5px;">Eliana Torres</h5>
@@ -1271,7 +1480,7 @@
                         </div>
                         <div class="d-flex align-items-center mt-2">
                             <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author5.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255, 255, 255, 0.2);" />
+                                <img src="assets/images/testimonials/author5.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
                             </div>
                             <div class="testi-des">
                                 <h5 style="margin: 0; font-size: 13.5px;">Sebastián Mora</h5>
@@ -1413,7 +1622,7 @@
                         <p>Estamos disponibles para asesorarte en tiempo real. Escríbenos directamente o síguenos en nuestras redes oficiales para enterarte de cada lanzamiento antes que nadie.</p>
                         <!-- START CONTACT SINGLEDESIGN AREA -->
                         <div class="single-contact wow fadeInUp" data-wow-delay=".6s">
-                            <h5 class="text-white mb-3" style="font-size: 18px;">Canales Oficiales:</h5>
+                            <h5 class="mb-3" style="font-size: 18px; color: #111111; font-weight: 700;">Canales Oficiales:</h5>
                             <div class="about-social">
                                 <ul>
                                     <li><a href="https://instagram.com" target="_blank" title="Instagram"><i class="ri-instagram-fill"></i></a></li>
@@ -1428,23 +1637,23 @@
                 </div>
                 <!-- START WHATSAPP CTA DESIGN AREA -->
                 <div class="col-lg-6">
-                    <div class="contact-form-area wow fadeInUp delay-0-4s p-4 p-md-5" style="background: var(--black-color); border: 1px solid var(--border-color); border-radius: 16px;">
+                    <div class="contact-form-area wow fadeInUp delay-0-4s p-4 p-md-5" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);">
                         <div class="whatsapp-cta-box text-center">
                             <div class="whatsapp-icon mb-3">
                                 <i class="ri-whatsapp-fill" style="font-size: 54px; color: #25D366;"></i>
                             </div>
-                            <span class="badge mb-3 px-3 py-2" style="background: rgba(37, 211, 102, 0.15); color: #25D366; font-size: 13px; border-radius: 20px; font-weight: 500;">
+                            <span class="badge mb-3 px-3 py-2" style="background: rgba(37, 211, 102, 0.15); color: #16a34a; font-size: 13px; border-radius: 20px; font-weight: 600;">
                                 <i class="ri-checkbox-circle-fill me-1"></i> Canal de Atención Activo
                             </span>
-                            <h3 class="text-white mb-2" style="font-size: 24px;">Atención Inmediata por WhatsApp</h3>
-                            <p class="mb-4" style="color: var(--text-color); font-size: 15px;">
+                            <h3 class="mb-2" style="font-size: 24px; color: #111111; font-weight: 700;">Atención Inmediata por WhatsApp</h3>
+                            <p class="mb-4" style="color: #4b5563; font-size: 15px; line-height: 1.6;">
                                 Haz clic en el botón para consultar stock en tiempo real, resolver dudas sobre métodos de pago y asegurar tu gorra antes de que se agote.
                             </p>
                             <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" class="theme-btn d-inline-block" style="background: #25D366; color: #000; border-color: #25D366; font-weight: 600; padding: 14px 30px; border-radius: 30px;">
                                 Chatear por WhatsApp <i class="ri-whatsapp-line ms-1"></i>
                             </a>
-                            <div class="mt-4 pt-3" style="border-top: 1px solid var(--border-color);">
-                                <span style="font-size: 13px; color: var(--text-color);">
+                            <div class="mt-4 pt-3" style="border-top: 1px solid #e5e7eb;">
+                                <span style="font-size: 13px; color: #6b7280;">
                                     <i class="ri-time-line me-1"></i> Horario: Lun - Sáb: 9:00 AM - 8:00 PM | Envíos a todo el país
                                 </span>
                             </div>
@@ -1473,8 +1682,8 @@
                 </div>
                 <div class="col-lg-6 col-sm-6 text-sm-end">
                     <p class="copy-right-text">
-                        <a href="terms.html" class="link-decoration me-3" style="color: var(--text-color); font-size: 14px;">Términos y Condiciones</a>
-                        <a href="privacy.html" class="link-decoration" style="color: var(--text-color); font-size: 14px;">Política de Privacidad</a>
+                        <a href="terms.html" class="link-decoration me-3" style="color: #6b7280; font-size: 14px;">Términos y Condiciones</a>
+                        <a href="privacy.html" class="link-decoration" style="color: #6b7280; font-size: 14px;">Política de Privacidad</a>
                     </p>
                 </div>
             </div>
