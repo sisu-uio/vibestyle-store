@@ -762,7 +762,6 @@
         /* FONDOS DE SECCIONES (Blanco puro y tonos limpios) */
         .services-area,
         .projects-area,
-        .blog-area,
         .contact-area {
             background: #ffffff !important;
             background-image: none !important;
@@ -777,8 +776,8 @@
 
         .main-footer {
             border-top: 1px solid #e5e7eb !important;
-            padding-top: 70px !important;
-            padding-bottom: 30px !important;
+            padding-top: 35px !important;
+            padding-bottom: 35px !important;
         }
 
         /* TÍTULOS DE SECCIONES EN NEGRO PROFUNDO (#111111) */
@@ -794,106 +793,311 @@
             color: #6b7280 !important;
         }
 
-        /* Reseñas / Fit Check (#reviews) con tarjetas claras y textos legibles */
+        /* Reseñas / Fit Check (#reviews) - Tarjeta Única Centrada con Timeline Vertical */
         .testimonials-area {
-            padding-top: 60px !important;
-            padding-bottom: 60px !important;
+            padding-top: 75px !important;
+            padding-bottom: 80px !important;
+            background: #f8f9fa !important;
+            overflow: hidden;
         }
 
-        .testimonial-item {
-            padding: 16px 18px !important;
-            margin-bottom: 16px !important;
-            border-radius: 12px !important;
-            background: #ffffff !important;
-            border: 1px solid #e5e7eb !important;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
-            transition: all 0.3s ease !important;
+        .reviews-spotlight-wrapper {
+            position: relative;
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
 
-        .testimonial-item:hover {
-            border-color: #cbd5e1 !important;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
-            transform: translateY(-2px) !important;
+        .swiper-reviews-spotlight {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 24px;
         }
 
-        .testimonial-item .star-rating {
-            color: #f59e0b !important;
-            font-size: 11px !important;
-            margin-bottom: 6px !important;
+        .swiper-reviews-spotlight .swiper-slide {
+            padding: 35px 0; /* Espacio para que la foto sobresalga arriba y abajo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .testimonial-item .text {
-            font-size: 13.5px !important;
-            line-height: 1.55 !important;
-            color: #374151 !important;
-            margin-bottom: 0 !important;
+        /* Tarjeta principal blanca horizontal */
+        .review-spotlight-card {
+            background: #ffffff;
+            border: 1px solid #edf0f3;
+            border-radius: 20px;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            margin-left: 65px;
+            padding: 28px 48px 28px 24px;
+            gap: 28px;
+            position: relative;
+            min-height: 200px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .testimonial-item .author {
-            margin-top: 0 !important;
+        .review-spotlight-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Fotografía del cliente (3:4 vertical imponente que sobresale más alta que la caja) */
+        .review-spotlight-media {
+            flex: 0 0 195px;
+            width: 195px;
+            height: 260px;
+            aspect-ratio: 3 / 4;
+            margin-left: -65px; /* Sobresale hacia la izquierda */
+            margin-top: -30px;  /* Sobresale arriba */
+            margin-bottom: -30px; /* Sobresale abajo */
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #f1f3f5;
+            box-shadow: 0 20px 42px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.06);
+            z-index: 5;
             flex-shrink: 0;
         }
 
-        .testimonial-item .author img {
-            width: 34px !important;
-            height: 34px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            border: 1.5px solid #e5e7eb !important;
+        .review-spotlight-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 18px;
+            transition: transform 0.5s ease;
         }
 
-        .testimonial-item .testi-des h5 {
-            font-size: 13.5px !important;
-            margin-top: 0 !important;
-            margin-bottom: 1px !important;
-            font-weight: 700 !important;
-            color: #111111 !important;
-            text-transform: none !important;
+        .review-spotlight-card:hover .review-spotlight-media img {
+            transform: scale(1.05);
+        }
+
+        /* Contenido interno derecho compacto */
+        .review-spotlight-content {
+            flex: 1;
+            max-width: 410px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        /* 1. Estrellas doradas */
+        .review-spotlight-content .star-rating {
+            color: #f59e0b;
+            font-size: 15px;
+            display: inline-flex;
+            gap: 3px;
+            margin-bottom: 10px;
+        }
+
+        /* 2. Texto principal de la reseña con ancho controlado */
+        .review-spotlight-text {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: #374151;
+            margin: 0 0 14px 0;
+            font-style: italic;
+        }
+
+        /* 3. Rectángulo verde sutil y minimalista para el Drop */
+        .review-drop-badge {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 6px;
             letter-spacing: 0.2px;
         }
 
-        .testimonial-item .testi-des span {
-            font-size: 11px !important;
-            line-height: 1.2 !important;
-            color: #16a34a !important;
+        /* Indicador Vertical de Línea de Tiempo (Solo puntos limpios a la derecha) */
+        .reviews-vertical-timeline {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f8fafc;
+            padding: 8px 5px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            user-select: none;
+        }
+
+        .swiper-pagination-reviews-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: static !important;
+            transform: none !important;
+            width: auto !important;
+        }
+
+        .swiper-pagination-reviews-vertical .swiper-pagination-bullet {
+            width: 5px;
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 10px;
+            transition: all 0.35s ease;
+            opacity: 0.6;
+            cursor: pointer;
+            margin: 0 !important;
             display: block;
-            font-weight: 600 !important;
         }
 
-        /* Drop Stories / Blog Cards (#blog) en fondo claro */
-        .blog-post-box {
-            background: #ffffff !important;
-            border: 1px solid #e5e7eb !important;
-            border-radius: 14px !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-            transition: all 0.3s ease !important;
+        .swiper-pagination-reviews-vertical .swiper-pagination-bullet:hover {
+            opacity: 1;
+            background: #64748b;
         }
 
-        .blog-post-box:hover {
-            border-color: #cbd5e1 !important;
+        .swiper-pagination-reviews-vertical .swiper-pagination-bullet-active {
+            height: 22px;
+            background: #111111;
+            opacity: 1;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Adaptabilidad Perfecta para Móviles */
+        @media (max-width: 767px) {
+            .testimonials-area {
+                padding-top: 50px !important;
+                padding-bottom: 55px !important;
+            }
+
+            .testimonials-area .section-title h2 {
+                font-size: 26px !important;
+                line-height: 1.25 !important;
+            }
+
+            .testimonials-area .container {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .reviews-spotlight-wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                padding: 10px 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            .swiper-reviews-spotlight .swiper-slide {
+                padding: 15px 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .review-spotlight-card {
+                background: #ffffff;
+                border: 1px solid #edf0f3;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: calc(100% - 28px);
+                margin-left: 28px;
+                margin-right: 0;
+                padding: 14px 28px 14px 12px;
+                gap: 12px;
+                position: relative;
+                min-height: 135px;
+                box-sizing: border-box !important;
+            }
+
+            /* Fotografía del cliente 3:4 vertical flotante hacia la izquierda */
+            .review-spotlight-media {
+                flex: 0 0 105px;
+                width: 105px;
+                height: 140px;
+                aspect-ratio: 3 / 4;
+                margin-left: -28px; /* Sobresale hacia la izquierda de la tarjeta blanca */
+                margin-top: -10px;  /* Sobresale sutilmente arriba */
+                margin-bottom: -10px; /* Sobresale sutilmente abajo */
+                position: relative;
+                border-radius: 14px;
+                overflow: hidden;
+                background: #f1f3f5;
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16), 0 3px 8px rgba(0, 0, 0, 0.06);
+                z-index: 10; /* Siempre por encima */
+                flex-shrink: 0;
+            }
+
+            .review-spotlight-media img {
+                border-radius: 14px;
+            }
+
+            .review-spotlight-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-width: 0;
+                padding-left: 0;
+                max-width: 100%;
+            }
+
+            .review-spotlight-content .star-rating {
+                font-size: 11px;
+                margin-bottom: 4px;
+                gap: 2px;
+            }
+
+            .review-spotlight-text {
+                font-size: 9.8px;
+                line-height: 1.42;
+                margin-bottom: 6px;
+                color: #374151;
+            }
+
+            .review-drop-badge {
+                font-size: 8px;
+                padding: 2px 7px;
+                border-radius: 5px;
+            }
+
+            .reviews-vertical-timeline {
+                right: 5px;
+                padding: 5px 3.5px;
+                border-radius: 12px;
+            }
+
+            .swiper-pagination-reviews-vertical .swiper-pagination-bullet {
+                width: 3.5px;
+                height: 4.5px;
+            }
+
+            .swiper-pagination-reviews-vertical .swiper-pagination-bullet-active {
+                height: 14px;
+            }
+        }
+
+        /* Quiénes Somos (#about) */
+        .about-image img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 16px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-            transform: translateY(-3px) !important;
+            object-fit: cover !important;
+            display: block !important;
         }
 
-        .blog-post-caption h3 {
-            color: #6b7280 !important;
-            font-size: 14px !important;
-            font-weight: 600 !important;
-        }
-
-        .blog-post-caption h2 a {
-            color: #111111 !important;
-            font-size: 22px !important;
-            font-weight: 700 !important;
-            line-height: 1.35 !important;
-            transition: color 0.2s ease !important;
-        }
-
-        .blog-post-caption h2 a:hover {
-            color: #1a5edb !important;
-        }
-
-        /* Nuestra Esencia (#about) */
         .about-content-part p {
             color: #374151 !important;
             font-size: 16.5px !important;
@@ -912,15 +1116,26 @@
         }
 
         /* Contacto Directo (#contact) */
+        .contact-content-part {
+            text-align: center !important;
+        }
+
         .contact-content-part p {
             color: #4b5563 !important;
-            font-size: 16px !important;
-            line-height: 1.6 !important;
+            font-size: 15.5px !important;
+            line-height: 1.65 !important;
         }
 
         .contact-content-part h2 {
-            color: #111111 !important;
+            color: #1a5edb !important;
             font-weight: 800 !important;
+            font-size: 26px !important;
+            line-height: 1.35 !important;
+            margin-bottom: 16px !important;
+        }
+
+        .contact-content-part .single-contact {
+            text-align: center !important;
         }
 
         .contact-content-part .single-contact h5,
@@ -929,22 +1144,37 @@
             font-weight: 700 !important;
         }
 
+        .about-social ul {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 14px !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            list-style: none !important;
+        }
+
         .about-social ul li a {
-            color: #111111 !important;
-            border: 2px solid #e5e7eb !important;
-            background: #ffffff !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            color: #ffffff !important;
+            background: #1a5edb !important;
+            border: 2px solid #1a5edb !important;
+            box-shadow: 0 4px 14px rgba(26, 94, 219, 0.28) !important;
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
+            border-radius: 50% !important;
+            width: 44px !important;
+            height: 44px !important;
+            font-size: 20px !important;
             transition: all 0.3s ease !important;
         }
 
         .about-social ul li a:hover {
             color: #ffffff !important;
-            background: #1a5edb !important;
-            border-color: #1a5edb !important;
-            transform: translateY(-2px) !important;
+            background: #1348a6 !important;
+            border-color: #1348a6 !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 6px 20px rgba(26, 94, 219, 0.45) !important;
         }
 
         .contact-form-area {
@@ -1076,8 +1306,7 @@
                                         <li><a href="#projects" class="linkstyle">Catálogo</a></li>
                                         <li><a href="#services" class="linkstyle">Proceso</a></li>
                                         <li><a href="#reviews" class="linkstyle">Reseñas</a></li>
-                                        <li><a href="#blog" class="linkstyle">Curiosidades</a></li>
-                                        <li><a href="#about" class="linkstyle">Nuestra Esencia</a></li>
+                                        <li><a href="#about" class="linkstyle">Quiénes Somos</a></li>
                                         <li><a href="#contact" class="linkstyle">Contacto</a></li>
                                     </ul>
                                 </nav>
@@ -1186,7 +1415,7 @@
                                     <a href="#contact" class="d-none d-md-block">
                                         <img src="assets/images/box-item/banner-02.jpg" alt="Paso 02: Escríbenos por WhatsApp">
                                     </a>
-                                    <a href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20las%20gorras" target="_blank" rel="noopener noreferrer" class="d-block d-md-none">
+                                    <a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" class="d-block d-md-none">
                                         <img src="assets/images/box-item/banner-02.jpg" alt="Paso 02: Escríbenos por WhatsApp">
                                     </a>
                                     <span class="wishlist-button"><i class="ri-check-line"></i> Paso 02</span>
@@ -1194,15 +1423,15 @@
                                         <span class="js-countdown"><i class="ri-whatsapp-fill me-1"></i> Canal Directo</span>
                                     </div>
                                     <div class="button-place-bid d-block d-md-none" style="position: absolute; bottom: 12px; right: 12px; z-index: 10000 !important; pointer-events: auto !important; transform: translateZ(35px);">
-                                        <a href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20las%20gorras" target="_blank" rel="noopener noreferrer" class="tf-button" style="position: relative; z-index: 10001 !important; pointer-events: auto !important; cursor: pointer !important;"><span>Chatear Ahora</span></a>
+                                        <a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" class="tf-button" style="position: relative; z-index: 10001 !important; pointer-events: auto !important; cursor: pointer !important;"><span>Chatear Ahora</span></a>
                                     </div>
                                 </div>
                                 <div class="meta-info text-center">
                                     <h5 class="name">
                                         <a href="#contact" class="d-none d-md-inline">Escríbenos por WhatsApp</a>
-                                        <a href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20las%20gorras" target="_blank" rel="noopener noreferrer" class="d-inline d-md-none">Escríbenos por WhatsApp</a>
+                                        <a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" class="d-inline d-md-none">Escríbenos por WhatsApp</a>
                                     </h5>
-                                    <p class="step-desc">Confirma disponibilidad inmediata, resuelve dudas sobre tallas y separa tu modelo en tiempo real.</p>
+                                    <p class="step-desc">Confirma disponibilidad inmediata, resuelve cualquier duda sobre los modelos y separa tu pieza en tiempo real.</p>
                                     <h6 class="price gem"><i class="ri-time-line"></i> Respuesta Rápida</h6>
                                 </div>
                             </div>
@@ -1379,207 +1608,159 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    <div class="section-title section-black-title wow fadeInUp delay-0-2s">
+                    <div class="section-title section-black-title wow fadeInUp delay-0-2s text-center">
                         <h2>Comunidad & Fit Check</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <!-- START SINGLE TESTIMONIALS DESIGN AREA -->
-                    <div class="testimonial-item wow fadeInUp delay-0-2s">
-                        <div class="star-rating">
-                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                        </div>
-                        <div class="text">
-                            "La calidad del bordado y la estructura de la corona son de otro nivel. No se deforma para nada y la tela es súper fresca. El empaque llegó impecable."
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author1.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
+            <div class="reviews-spotlight-wrapper wow fadeInUp delay-0-4s">
+                <div class="swiper swiper-reviews-spotlight">
+                    <div class="swiper-wrapper">
+                        <!-- SLIDE 01 -->
+                        <div class="swiper-slide">
+                            <div class="review-spotlight-card">
+                                <div class="review-spotlight-media">
+                                    <img src="assets/images/testimonials/author1.jpg" alt="Drop: Midnight Snapback">
+                                </div>
+                                <div class="review-spotlight-content">
+                                    <div class="star-rating">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <p class="review-spotlight-text">
+                                        "La calidad del bordado y la estructura de la corona son de otro nivel. No se deforma para nada y la tela es súper fresca. El empaque en caja rígida llegó impecable hasta mi puerta."
+                                    </p>
+                                    <div class="review-drop-badge">
+                                        Drop: Midnight Snapback
+                                    </div>
+                                </div>
                             </div>
-                            <div class="testi-des">
-                                <h5 style="margin: 0; font-size: 13.5px;">Carlos Mendoza</h5>
-                                <span style="font-size: 11px; color: #25D366;">Drop: Midnight Snapback</span>
+                        </div>
+                        <!-- SLIDE 02 -->
+                        <div class="swiper-slide">
+                            <div class="review-spotlight-card">
+                                <div class="review-spotlight-media">
+                                    <img src="assets/images/testimonials/author2.jpg" alt="Drop: Urban Trucker">
+                                </div>
+                                <div class="review-spotlight-content">
+                                    <div class="star-rating">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <p class="review-spotlight-text">
+                                        "Compré el modelo Urban Trucker y el fit es exactamente lo que buscaba para mi estilo diario. La visera tiene la curvatura perfecta y la malla posterior es muy fresca y resistente."
+                                    </p>
+                                    <div class="review-drop-badge">
+                                        Drop: Urban Trucker
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SLIDE 03 -->
+                        <div class="swiper-slide">
+                            <div class="review-spotlight-card">
+                                <div class="review-spotlight-media">
+                                    <img src="assets/images/testimonials/author3.jpg" alt="Drop: Vintage Dad Hat">
+                                </div>
+                                <div class="review-spotlight-content">
+                                    <div class="star-rating">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <p class="review-spotlight-text">
+                                        "El envío fue rapidísimo y la atención directa por WhatsApp resolvió mis dudas en minutos. La textura del algodón lavado se siente brutal en persona. 10/10 en comodidad."
+                                    </p>
+                                    <div class="review-drop-badge">
+                                        Drop: Vintage Dad Hat
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SLIDE 04 -->
+                        <div class="swiper-slide">
+                            <div class="review-spotlight-card">
+                                <div class="review-spotlight-media">
+                                    <img src="assets/images/testimonials/author4.jpg" alt="Drop: Obsidian 5-Panel">
+                                </div>
+                                <div class="review-spotlight-content">
+                                    <div class="star-rating">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <p class="review-spotlight-text">
+                                        "Materiales de primer nivel que justifican cada detalle. El broche trasero metálico ajustable es de excelente calidad y el forro interior transpirable evita marcas en la frente."
+                                    </p>
+                                    <div class="review-drop-badge">
+                                        Drop: Obsidian 5-Panel
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SLIDE 05 -->
+                        <div class="swiper-slide">
+                            <div class="review-spotlight-card">
+                                <div class="review-spotlight-media">
+                                    <img src="assets/images/testimonials/author5.jpg" alt="Drop: Sand Desert Cap">
+                                </div>
+                                <div class="review-spotlight-content">
+                                    <div class="star-rating">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <p class="review-spotlight-text">
+                                        "Segunda gorra que compro en la tienda. La textura y los tonos tierra monocromáticos combinan perfecto con cualquier outfit streetwear. La caja de protección es un gran plus."
+                                    </p>
+                                    <div class="review-drop-badge">
+                                        Drop: Sand Desert Cap
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- / END SINGLE TESTIMONIALS DESIGN AREA -->
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <!-- START SINGLE TESTIMONIALS DESIGN AREA -->
-                    <div class="testimonial-item wow fadeInUp delay-0-4s">
-                        <div class="star-rating">
-                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                        </div>
-                        <div class="text">
-                            "Compré el modelo Urban Trucker y el fit es exactamente lo que buscaba. La visera tiene la curvatura perfecta. Ya esperando el próximo drop."
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author2.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
-                            </div>
-                            <div class="testi-des">
-                                <h5 style="margin: 0; font-size: 13.5px;">Valeria R.</h5>
-                                <span style="font-size: 11px; color: #25D366;">Drop: Urban Trucker</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / END SINGLE TESTIMONIALS DESIGN AREA -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <!-- START SINGLE TESTIMONIALS DESIGN AREA -->
-                    <div class="testimonial-item wow fadeInUp delay-0-6s">
-                        <div class="star-rating">
-                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                        </div>
-                        <div class="text">
-                            "El envío fue rapidísimo y la atención por WhatsApp 10/10. Muy recomendados si buscas gorras con estilo y durabilidad real."
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author3.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
-                            </div>
-                            <div class="testi-des">
-                                <h5 style="margin: 0; font-size: 13.5px;">Mateo Silva</h5>
-                                <span style="font-size: 11px; color: #25D366;">Drop: Vintage Dad Hat</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / END SINGLE TESTIMONIALS DESIGN AREA -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <!-- START SINGLE TESTIMONIALS DESIGN AREA -->
-                    <div class="testimonial-item wow fadeInUp delay-0-8s">
-                        <div class="star-rating">
-                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                        </div>
-                        <div class="text">
-                            "Materiales premium que justifican cada centavo. El broche trasero es de excelente calidad y el forro interior muy cómodo."
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author4.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
-                            </div>
-                            <div class="testi-des">
-                                <h5 style="margin: 0; font-size: 13.5px;">Eliana Torres</h5>
-                                <span style="font-size: 11px; color: #25D366;">Drop: Obsidian 5-Panel</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / END SINGLE TESTIMONIALS DESIGN AREA -->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <!-- START SINGLE TESTIMONIALS DESIGN AREA -->
-                    <div class="testimonial-item wow fadeInUp delay-0-9s">
-                        <div class="star-rating">
-                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                        </div>
-                        <div class="text">
-                            "Segunda gorra que les compro. La textura y los tonos monocromáticos combinan perfecto con cualquier outfit streetwear."
-                        </div>
-                        <div class="d-flex align-items-center mt-2">
-                            <div class="author me-2 mt-0">
-                                <img src="assets/images/testimonials/author5.jpg" alt="Fit Check" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid #e5e7eb;" />
-                            </div>
-                            <div class="testi-des">
-                                <h5 style="margin: 0; font-size: 13.5px;">Sebastián Mora</h5>
-                                <span style="font-size: 11px; color: #25D366;">Drop: Sand Desert Cap</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / END SINGLE TESTIMONIALS DESIGN AREA -->
+
+                <!-- Indicador Vertical de Línea de Tiempo (Solo puntos limpios a la derecha) -->
+                <div class="reviews-vertical-timeline">
+                    <div class="swiper-pagination-reviews-vertical"></div>
                 </div>
             </div>
         </div>
     </section>
     <!-- / END TESTIMONIALS DESIGN AREA -->
-    <!-- START VLOG DESIGN AREA -->
-    <section id="blog" class="blog-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="section-title section-white-title wow fadeInUp delay-0-2s">
-                        <h2>Drop Stories & Streetwear Tips</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- START SINGLE VLOG DESIGN AREA -->
-            <div class="row ">
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post-box">
-                        <div class="blog-post-img">
-                            <a href="#contact">
-                                <img src="assets/images/blog/blog1.jpg" alt="Lanzamiento Drop">
-                            </a>
-                            <div class="blog-post-category">
-                                <a href="#contact">Lanzamiento</a>
-                            </div>
-                        </div>
-                        <div class="blog-post-caption">
-                            <h3>Edición Limitada</h3>
-                            <h2><a class="link-decoration" href="#contact">Cómo asegurar tu pieza antes de que se agote el stock</a></h2>
-                            <a class="theme-btn" href="#contact">Saber más <i class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post-box">
-                        <div class="blog-post-img">
-                            <a href="#contact">
-                                <img src="assets/images/blog/blog2.jpg" alt="Cuidado de Gorras">
-                            </a>
-                            <div class="blog-post-category">
-                                <a href="#contact">Cap Care</a>
-                            </div>
-                        </div>
-                        <div class="blog-post-caption">
-                            <h3>Guía de Cuidado</h3>
-                            <h2><a class="link-decoration" href="#contact">Guía definitiva para lavar y mantener la forma de tu gorra</a></h2>
-                            <a class="theme-btn" href="#contact">Saber más <i class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post-box">
-                        <div class="blog-post-img">
-                            <a href="#contact">
-                                <img src="assets/images/blog/blog3.jpg" alt="Materiales y Bordados">
-                            </a>
-                            <div class="blog-post-category">
-                                <a href="#contact">Nuestra Marca</a>
-                            </div>
-                        </div>
-                        <div class="blog-post-caption">
-                            <h3>Detrás del Diseño</h3>
-                            <h2><a class="link-decoration" href="#contact">El por qué de nuestros bordados 3D de alta densidad</a></h2>
-                            <a class="theme-btn" href="#contact">Saber más <i class="ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- // END SINGLE VLOG DESIGN AREA -->
-        </div>
-    </section>
-    <!-- / END VLOG DESIGN AREA -->
     <!-- START ABOUT DESIGN AREA -->
     <section id="about" class="about-area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="section-title section-white-title wow fadeInUp delay-0-2s">
-                        <h2>Nuestra Esencia</h2>
+                        <h2>Quiénes Somos</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row align-items-center">
                 <!-- START ABOUT TEXT DESIGN AREA -->
-                <div class="col-lg-4 col-sm-12 about-image">
-                    <img src="assets/images/about/me.jpg" alt="Nuestra Marca">
+                <div class="col-lg-5 col-sm-12 about-image mb-4 mb-lg-0">
+                    <img src="assets/images/about/quienes-somos.jpg" alt="Quiénes Somos - VibeStyle Caps">
                 </div>
-                <div class="col-lg-8 col-sm-12">
+                <div class="col-lg-7 col-sm-12">
                     <div class="about-content-part wow fadeInUp delay-0-2s">
-                        <p>Somos una marca de streetwear independiente enfocada en crear piezas de colección únicas. Cada una de nuestras gorras pasa por un riguroso proceso de confección donde combinamos siluetas clásicas, bordados de alta densidad y materiales premium pensados para durar y destacar en las calles.</p>
+                        <p>Somos una marca orgullosamente ecuatoriana nacida de nuestra pasión por la cultura urbana y el streetwear de alto nivel. Gestionamos una logística directa y transparente de drops exclusivos importados directamente desde Estados Unidos, seleccionando personalmente piezas de colección auténticas y siluetas difíciles de conseguir en el mercado local.</p>
+                        <p>Como creadores y dueños, creemos en la honestidad, la exclusividad real y la cercanía total con nuestra comunidad. Cada gorra que recibimos es verificada minuciosamente en calidad, bordados y acabados, garantizándote un servicio personalizado y envíos 100% seguros a cualquier rincón del país.</p>
                     </div>
                     <!-- START COUNTER DESIGN AREA -->
                     <div class="hero-counter-area d-flex justify-content-between wow fadeInUp delay-0-4s">
@@ -1615,20 +1796,19 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="contact-content-part wow fadeInUp delay-0-2s">
-                        <img src="assets/images/about/me.jpg" alt="Contacto">
-                        <p>Atención Personalizada</p>
-                        <h2>¿Tienes dudas sobre tallas, envíos o el próximo drop?</h2>
-                        <p>Estamos disponibles para asesorarte en tiempo real. Escríbenos directamente o síguenos en nuestras redes oficiales para enterarte de cada lanzamiento antes que nadie.</p>
+                    <div class="contact-content-part wow fadeInUp delay-0-2s text-center">
+                        <p class="sub-title" style="color: #6b7280; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Atención Personalizada</p>
+                        <h2 style="color: #1a5edb; font-size: 26px; font-weight: 800; line-height: 1.35; margin-bottom: 16px;">¿Tienes dudas sobre envíos a todo el país, disponibilidad de drops o consultas sobre los modelos?</h2>
+                        <p style="color: #4b5563; font-size: 15px; line-height: 1.6; max-width: 500px; margin: 0 auto 24px auto;">Estamos disponibles para asesorarte en tiempo real sobre coberturas de despacho nacional, disponibilidad inmediata de drops y cualquier consulta general sobre nuestros modelos. Escríbenos directamente o síguenos en nuestras redes oficiales.</p>
                         <!-- START CONTACT SINGLEDESIGN AREA -->
-                        <div class="single-contact wow fadeInUp" data-wow-delay=".6s">
-                            <h5 class="mb-3" style="font-size: 18px; color: #111111; font-weight: 700;">Canales Oficiales:</h5>
-                            <div class="about-social">
-                                <ul>
-                                    <li><a href="https://instagram.com" target="_blank" title="Instagram"><i class="ri-instagram-fill"></i></a></li>
-                                    <li><a href="https://tiktok.com" target="_blank" title="TikTok"><i class="ri-tiktok-fill"></i></a></li>
-                                    <li><a href="https://facebook.com" target="_blank" title="Facebook"><i class="ri-facebook-circle-fill"></i></a></li>
-                                    <li><a href="https://wa.me/573000000000" target="_blank" title="WhatsApp"><i class="ri-whatsapp-fill"></i></a></li>
+                        <div class="single-contact wow fadeInUp" data-wow-delay=".6s" style="text-align: center;">
+                            <h5 class="mb-3" style="font-size: 16px; color: #111111; font-weight: 700;">Canales Oficiales:</h5>
+                            <div class="about-social" style="text-align: center;">
+                                <ul style="display: flex; justify-content: center; align-items: center; gap: 14px; padding: 0; margin: 0; list-style: none;">
+                                    <li><a href="https://www.instagram.com/vibestyle.uio/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="ri-instagram-fill"></i></a></li>
+                                    <li><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="ri-tiktok-fill"></i></a></li>
+                                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="ri-facebook-circle-fill"></i></a></li>
+                                    <li><a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="ri-whatsapp-fill"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1649,14 +1829,9 @@
                             <p class="mb-4" style="color: #4b5563; font-size: 15px; line-height: 1.6;">
                                 Haz clic en el botón para consultar stock en tiempo real, resolver dudas sobre métodos de pago y asegurar tu gorra antes de que se agote.
                             </p>
-                            <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" class="theme-btn d-inline-block" style="background: #25D366; color: #000; border-color: #25D366; font-weight: 600; padding: 14px 30px; border-radius: 30px;">
+                            <a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" class="theme-btn d-inline-block" style="background: #25D366; color: #000; border-color: #25D366; font-weight: 600; padding: 14px 30px; border-radius: 30px;">
                                 Chatear por WhatsApp <i class="ri-whatsapp-line ms-1"></i>
                             </a>
-                            <div class="mt-4 pt-3" style="border-top: 1px solid #e5e7eb;">
-                                <span style="font-size: 13px; color: #6b7280;">
-                                    <i class="ri-time-line me-1"></i> Horario: Lun - Sáb: 9:00 AM - 8:00 PM | Envíos a todo el país
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1668,14 +1843,6 @@
     <!-- START FOOTER DESIGN AREA -->
     <footer class="main-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-top text-center">
-                        <p>¿Listo para elevar tu estilo?</p>
-                        <h2><a href="https://wa.me/573000000000" target="_blank">Escríbenos a WhatsApp</a></h2>
-                    </div>
-                </div>
-            </div>
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-6">
                     <p class="copy-left-text">&copy; 2026 Streetwear Cap Store. Todos los derechos reservados.</p>
@@ -1776,6 +1943,28 @@
                 // Asegurar que los botones de los pasos abran sus enlaces en desktop y móvil sin bloqueo
                 $('.swiper-3d-7 .button-place-bid a, .swiper-3d-7 .meta-info a').on('click', function (e) {
                     e.stopPropagation();
+                });
+            }
+
+            if ($('.swiper-reviews-spotlight').length > 0) {
+                var swiperSpotlight = new Swiper('.swiper-reviews-spotlight', {
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    speed: 550,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination-reviews-vertical',
+                        clickable: true,
+                    }
                 });
             }
         });
