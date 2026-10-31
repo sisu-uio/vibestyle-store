@@ -1250,6 +1250,12 @@
             }
         }
 
+        .scroller__inner {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            width: max-content !important;
+            align-items: center !important;
+        }
         .scroller__inner .carousel-photo,
         .carousel-photo {
             height: 240px !important;
@@ -1262,8 +1268,12 @@
         @media (max-width: 767px) {
             .scroller__inner .carousel-photo,
             .carousel-photo {
-                height: 160px !important;
-                margin: 0 10px !important;
+                height: 120px !important; /* Fotos mucho más pequeñas */
+                width: auto !important;
+                margin: 0 8px !important;
+            }
+            .company-list {
+                overflow-x: hidden !important; /* Esconder lo que sale de la pantalla */
             }
         }
 
@@ -1289,7 +1299,16 @@
         }
         @media (max-width: 767px) {
             .hero-counter-area {
-                gap: 35px;
+                flex-direction: column !important; /* Apilar en columna */
+                gap: 20px !important;
+                padding: 0 !important;
+            }
+            .hero-counter-area .count-text {
+                font-size: 32px !important;
+            }
+            .hero-counter-area .counter-title {
+                font-size: 14px !important;
+                white-space: normal !important;
             }
         }
         .hero-counter-area .count-text::after {
@@ -1298,6 +1317,13 @@
         .counter-item {
             text-align: center !important;
         }
+
+        /* Refinamiento de espaciados */
+        .services-area { padding-bottom: 20px !important; }
+        #services .col-xl-12 { height: 120px !important; }
+        #projects { padding-bottom: 10px !important; }
+        #reviews .col-xl-12 { height: 50px !important; }
+        .hero-counter-area .counter-item:first-child { padding-top: 10px !important; }
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -1860,7 +1886,9 @@
                     <div class="contact-form-area wow fadeInUp delay-0-4s p-4 p-md-5" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);">
                         <div class="whatsapp-cta-box text-center">
                             <div class="whatsapp-icon mb-3">
-                                <i class="ri-whatsapp-fill" style="font-size: 54px; color: #25D366;"></i>
+                                <a href="https://wa.me/593984948519?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20disponibles" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                                    <i class="ri-whatsapp-fill" style="font-size: 54px; color: #25D366; cursor:pointer;"></i>
+                                </a>
                             </div>
                             <span class="badge mb-3 px-3 py-2" style="background: rgba(37, 211, 102, 0.15); color: #16a34a; font-size: 13px; border-radius: 20px; font-weight: 600;">
                                 <i class="ri-checkbox-circle-fill me-1"></i> Canal de Atención Activo
