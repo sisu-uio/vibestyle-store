@@ -389,123 +389,99 @@
             }
         }
 
-        /* Rediseño vertical 4:5 y catálogo ultra compacto / denso (#projects) */
+        /* Catálogo de Productos (#projects - Drops & Collection) */
         .projects-area {
-            padding-top: 60px !important;
-            padding-bottom: 70px !important;
-        }
-
-        .projects-area .container-fluid {
-            padding-left: 4px !important;
-            padding-right: 4px !important;
-            max-width: 100% !important;
-            width: 100% !important;
-        }
-
-        @media (min-width: 1400px) {
-            .projects-area .container-fluid {
-                padding-left: 8px !important;
-                padding-right: 8px !important;
-                max-width: 1560px !important;
-            }
+            padding-top: 70px !important;
+            padding-bottom: 85px !important;
         }
 
         .portfolio-grid {
-            --bs-gutter-x: 4px !important;
-            --bs-gutter-y: 4px !important;
-            margin-left: -2px !important;
-            margin-right: -2px !important;
-            margin-top: -2px !important;
-        }
-
-        .portfolio-grid > [class*="col-"] {
-            padding-left: 2px !important;
-            padding-right: 2px !important;
-            padding-top: 2px !important;
-            padding-bottom: 2px !important;
-            margin-bottom: 0 !important;
-        }
-
-        .portfolio-item .work-popup {
-            display: block !important;
-            width: 100% !important;
-            height: 100% !important;
-            text-decoration: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
+            --bs-gutter-x: 20px;
+            --bs-gutter-y: 26px;
         }
 
         .portfolio-box {
             position: relative;
             overflow: hidden;
-            border-radius: 4px !important;
-            aspect-ratio: 4 / 5 !important;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1 !important;
             width: 100% !important;
             background-color: #111111;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-box a.vibe-gallery-link:first-of-type {
             display: block;
-            margin: 0 !important;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .portfolio-box img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
             object-position: center !important;
             display: block;
-            border-radius: 4px !important;
+            border-radius: 12px;
+            transition: transform 0.5s ease;
         }
 
+        .portfolio-box:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Overlay inferior minimalista con nombre de modelo */
+        .portfolio-box .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 35px 14px 14px 14px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .portfolio-box .portfolio-title {
+            margin: 0;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.25;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            pointer-events: none;
+        }
+
+        /* Responsive Móvil de las tarjetas */
         @media (max-width: 575px) {
-            .projects-area .container-fluid {
-                padding-left: 2px !important;
-                padding-right: 2px !important;
-            }
             .portfolio-grid {
-                --bs-gutter-x: 3px !important;
-                --bs-gutter-y: 3px !important;
-                margin-left: -1.5px !important;
-                margin-right: -1.5px !important;
-                margin-top: -1.5px !important;
-            }
-            .portfolio-grid > [class*="col-"] {
-                padding-left: 1.5px !important;
-                padding-right: 1.5px !important;
-                padding-top: 1.5px !important;
-                padding-bottom: 1.5px !important;
+                --bs-gutter-x: 10px;
+                --bs-gutter-y: 14px;
             }
             .portfolio-box {
-                border-radius: 3px !important;
+                border-radius: 10px;
             }
             .portfolio-box img {
-                border-radius: 3px !important;
+                border-radius: 10px;
             }
-            .portfolio-box .portfolio-category {
-                top: 5px;
-                right: 5px;
-                font-size: 0.55em;
-                padding: 0.2em 0.4em;
+            .portfolio-box .portfolio-overlay {
+                padding: 24px 10px 10px 10px;
             }
-            .portfolio-box .portfolio-caption {
-                padding: 0 4px 6px;
-            }
-            .portfolio-box .portfolio-caption * {
-                font-size: 10.5px !important;
-                letter-spacing: 0;
-            }
-        }
-
-        @media (min-width: 576px) and (max-width: 991px) {
-            .portfolio-box .portfolio-caption * {
-                font-size: 15px !important;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .portfolio-box .portfolio-caption * {
-                font-size: 18px !important;
+            .portfolio-box .portfolio-title {
+                font-size: 12.5px;
             }
         }
 
@@ -1116,6 +1092,10 @@
         }
 
         /* Contacto Directo (#contact) */
+        .contact-area {
+            overflow-x: hidden;
+        }
+
         .contact-content-part {
             text-align: center !important;
         }
@@ -1244,6 +1224,80 @@
         .tf-card-box .meta-info .step-desc {
             color: #a5a5a5 !important;
         }
+
+        @media (max-width: 767px) {
+            .contact-content-part {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 15px !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+            }
+            .contact-content-part .sub-title,
+            .contact-content-part h2,
+            .contact-content-part p,
+            .contact-content-part .single-contact {
+                text-align: center !important;
+                width: 100% !important;
+            }
+            .contact-content-part h2 {
+                font-size: 22px !important; 
+                padding: 0 5px !important;
+            }
+        }
+
+        .scroller__inner .carousel-photo,
+        .carousel-photo {
+            height: 240px !important;
+            width: auto !important;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 15px !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 767px) {
+            .scroller__inner .carousel-photo,
+            .carousel-photo {
+                height: 160px !important;
+                margin: 0 10px !important;
+            }
+        }
+
+        /* Espacios en Cómo Comprar (#services) */
+        .services-area {
+            padding-top: 50px !important; 
+        }
+        .services-area .section-title {
+            margin-bottom: 25px !important; 
+        }
+        .swiper-3d-7 {
+            padding: 25px 0 10px 0 !important; 
+        }
+        .swiper-3d-controls {
+            margin-top: 5px !important; 
+        }
+
+        /* Estilos y alineación para los Contadores */
+        .hero-counter-area {
+            justify-content: center !important;
+            gap: 80px; 
+            flex-wrap: wrap;
+        }
+        @media (max-width: 767px) {
+            .hero-counter-area {
+                gap: 35px;
+            }
+        }
+        .hero-counter-area .count-text::after {
+            color: #1a5edb !important; 
+        }
+        .counter-item {
+            text-align: center !important;
+        }
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -1261,13 +1315,7 @@
         </svg>
         <div class="preloader-heading">
             <div class="load-text">
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
+                <span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span>
             </div>
         </div>
     </div>
@@ -1358,13 +1406,13 @@
                     <div class="company-list">
                         <div class="scroller" data-direction="left" data-speed="slow">
                             <div class="scroller__inner">
-                                <img src="assets/images/client-logos/partner1.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner2.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner3.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner4.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner5.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner6.png" alt="Company" />
-                                <img src="assets/images/client-logos/partner7.png" alt="Company" />
+                                <img src="assets/images/client-logos/1.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/2.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/3.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/4.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/5.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/6.jpg" alt="VibeStyle Cap" class="carousel-photo" />
+                                <img src="assets/images/client-logos/7.jpg" alt="VibeStyle Cap" class="carousel-photo" />
                             </div>
                         </div>
                     </div>
@@ -1453,7 +1501,7 @@
                                 </div>
                                 <div class="meta-info text-center">
                                     <h5 class="name"><a href="#contact">Acuerda pago y envío</a></h5>
-                                    <p class="step-desc">Selecciona transferencia, tarjeta o link y facilítanos tus datos de entrega para procesar el despacho de inmediato.</p>
+                                    <p class="step-desc">Facilítanos tus datos de entrega para procesar el despacho inmediato</p>
                                     <h6 class="price gem"><i class="ri-bank-card-line"></i> Pagos Protegidos</h6>
                                 </div>
                             </div>
@@ -1475,7 +1523,7 @@
                                 </div>
                                 <div class="meta-info text-center">
                                     <h5 class="name"><a href="#reviews">Recibe tu gorra</a></h5>
-                                    <p class="step-desc">Enviamos tu gorra protegida en caja especial anti-deformación para que llegue en perfectas condiciones hasta la puerta de tu casa.</p>
+                                    <p class="step-desc">Enviamos tu gorra protegida en perfectas condiciones hasta la puerta de tu casa</p>
                                     <h6 class="price gem"><i class="ri-truck-line"></i> Envío Express</h6>
                                 </div>
                             </div>
@@ -1489,11 +1537,28 @@
                     <button class="next-3d swiper-nav-btn" aria-label="Siguiente paso"><i class="ri-arrow-right-s-line"></i></button>
                 </div>
             </div>
+            <!-- START COUNTER DESIGN AREA -->
+            <div class="hero-counter-area d-flex wow fadeInUp delay-0-4s mt-4">
+                <div class="counter-item counter-text-wrap">
+                    <span class="count-text plus" data-speed="3000" data-stop="15">0</span>
+                    <span class="counter-title d-block">Drops Exclusivos</span>
+                </div>
+                <div class="counter-item counter-text-wrap">
+                    <span class="count-text plus" data-speed="3000" data-stop="200">0</span>
+                    <span class="counter-title d-block">Gorras Premium Entregadas</span>
+                </div>
+                <div class="counter-item counter-text-wrap">
+                    <span class="count-text percent" data-speed="3000" data-stop="99">0</span>
+                    <span class="counter-title d-block">Satisfacción Cliente</span>
+                </div>
+            </div>
+            <!-- / END COUNTER DESIGN AREA -->
         </div>
     </section>
     <!-- / END SERVICE DESIGN AREA -->
     <!-- START PORTFOLIO DESIGN AREA -->
-    <div class="projects-area" id="projects">
+<div class="projects-area" id="projects">
+    <div class="container">
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 <div class="section-title section-white-title wow fadeInUp delay-0-2s text-center">
@@ -1501,108 +1566,117 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row g-1 portfolio-grid">
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-1">
-                    <a href="assets/images/projects/work1.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work1.jpg" alt="Midnight Snapback" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Drop 01</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Midnight Snapback</h1>
-                            </div>
-                        </div>
+        <div class="row portfolio-grid justify-content-center">
+
+            <!-- 1. Scuderia Ferrari Puma -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work1-1.jpg" class="vibe-gallery-link" title="Scuderia Ferrari Puma">
+                        <img src="assets/images/projects/work1-1.jpg" alt="Scuderia Ferrari Puma">
                     </a>
+                    <a href="assets/images/projects/work1-2.jpg" class="vibe-gallery-link d-none" title="Scuderia Ferrari Puma"></a>
+                    <a href="assets/images/projects/work1-3.jpg" class="vibe-gallery-link d-none" title="Scuderia Ferrari Puma"></a>
+                    <a href="assets/images/projects/work1-4.jpg" class="vibe-gallery-link d-none" title="Scuderia Ferrari Puma"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Scuderia Ferrari Puma</h3>
+                    </div>
                 </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-2">
-                    <a href="assets/images/projects/work2.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work2.jpg" alt="Urban Trucker" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Drop 02</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Urban Trucker</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-2">
-                    <a href="assets/images/projects/work3.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work3.jpg" alt="Vintage Dad Hat" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Classic</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Vintage Dad Hat</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-1">
-                    <a href="assets/images/projects/work4.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work4.jpg" alt="Obsidian 5-Panel" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Drop 03</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Obsidian 5-Panel</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-2">
-                    <a href="assets/images/projects/work5.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work5.jpg" alt="Sand Desert Cap" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Limited</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Sand Desert Cap</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
-                <!-- START SINGLE PORTFOLIO DESIGN AREA -->
-                <div class="col-4 col-md-4 col-xl-4 portfolio-item category-2">
-                    <a href="assets/images/projects/work6.jpg" class="work-popup">
-                        <div class="portfolio-box">
-                            <!-- Image -->
-                            <img src="assets/images/projects/work6.jpg" alt="Stealth Monochrome" data-rjs="2">
-                            <!-- Category -->
-                            <span class="portfolio-category">Exclusive</span>
-                            <!-- Caption -->
-                            <div class="portfolio-caption">
-                                <h1>Stealth Monochrome</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- // END SINGLE PORTFOLIO DESIGN AREA -->
             </div>
+
+            <!-- 2. Dodgers Khaki/White -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work2-1.jpg" class="vibe-gallery-link" title="Dodgers Khaki/White">
+                        <img src="assets/images/projects/work2-1.jpg" alt="Dodgers Khaki/White">
+                    </a>
+                    <a href="assets/images/projects/work2-2.jpg" class="vibe-gallery-link d-none" title="Dodgers Khaki/White"></a>
+                    <a href="assets/images/projects/work2-3.jpg" class="vibe-gallery-link d-none" title="Dodgers Khaki/White"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Dodgers Khaki/White</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. A-Frame Chrome/Black -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work3-1.jpg" class="vibe-gallery-link" title="A-Frame Chrome/Black">
+                        <img src="assets/images/projects/work3-1.jpg" alt="A-Frame Chrome/Black">
+                    </a>
+                    <a href="assets/images/projects/work3-2.jpg" class="vibe-gallery-link d-none" title="A-Frame Chrome/Black"></a>
+                    <a href="assets/images/projects/work3-3.jpg" class="vibe-gallery-link d-none" title="A-Frame Chrome/Black"></a>
+                    <a href="assets/images/projects/work3-4.jpg" class="vibe-gallery-link d-none" title="A-Frame Chrome/Black"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">A-Frame Chrome/Black</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 9FORTY Grey/White -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work4-1.jpg" class="vibe-gallery-link" title="9FORTY Grey/White">
+                        <img src="assets/images/projects/work4-1.jpg" alt="9FORTY Grey/White">
+                    </a>
+                    <a href="assets/images/projects/work4-2.jpg" class="vibe-gallery-link d-none" title="9FORTY Grey/White"></a>
+                    <a href="assets/images/projects/work4-3.jpg" class="vibe-gallery-link d-none" title="9FORTY Grey/White"></a>
+                    <a href="assets/images/projects/work4-4.jpg" class="vibe-gallery-link d-none" title="9FORTY Grey/White"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">9FORTY Grey/White</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Essential Black/White -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work5-1.jpg" class="vibe-gallery-link" title="Essential Black/White">
+                        <img src="assets/images/projects/work5-1.jpg" alt="Essential Black/White">
+                    </a>
+                    <a href="assets/images/projects/work5-2.jpg" class="vibe-gallery-link d-none" title="Essential Black/White"></a>
+                    <a href="assets/images/projects/work5-3.jpg" class="vibe-gallery-link d-none" title="Essential Black/White"></a>
+                    <a href="assets/images/projects/work5-4.jpg" class="vibe-gallery-link d-none" title="Essential Black/White"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Essential Black/White</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. World Series 1999 -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work6-1.jpg" class="vibe-gallery-link" title="World Series 1999">
+                        <img src="assets/images/projects/work6-1.jpg" alt="World Series 1999">
+                    </a>
+                    <a href="assets/images/projects/work6-2.jpg" class="vibe-gallery-link d-none" title="World Series 1999"></a>
+                    <a href="assets/images/projects/work6-3.jpg" class="vibe-gallery-link d-none" title="World Series 1999"></a>
+                    <a href="assets/images/projects/work6-4.jpg" class="vibe-gallery-link d-none" title="World Series 1999"></a>
+                    <a href="assets/images/projects/work6-5.jpg" class="vibe-gallery-link d-none" title="World Series 1999"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">World Series 1999</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. A-Frame San Diego -->
+            <div class="col-6 col-md-4 col-lg-4 portfolio-item">
+                <div class="portfolio-box">
+                    <a href="assets/images/projects/work7-1.jpg" class="vibe-gallery-link" title="A-Frame San Diego">
+                        <img src="assets/images/projects/work7-1.jpg" alt="A-Frame San Diego">
+                    </a>
+                    <a href="assets/images/projects/work7-2.jpg" class="vibe-gallery-link d-none" title="A-Frame San Diego"></a>
+                    <a href="assets/images/projects/work7-3.jpg" class="vibe-gallery-link d-none" title="A-Frame San Diego"></a>
+                    <a href="assets/images/projects/work7-4.jpg" class="vibe-gallery-link d-none" title="A-Frame San Diego"></a>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">A-Frame San Diego</h3>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <!-- // END PORTFOLIO DESIGN AREA -->
+</div>
+<!-- // END PORTFOLIO DESIGN AREA -->
     <!-- START TESTIMONIALS DESIGN AREA -->
     <section id="reviews" class="testimonials-area">
         <div class="container">
@@ -1743,45 +1817,11 @@
     </section>
     <!-- / END TESTIMONIALS DESIGN AREA -->
     <!-- START ABOUT DESIGN AREA -->
-    <section id="about" class="about-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="section-title section-white-title wow fadeInUp delay-0-2s">
-                        <h2>Quiénes Somos</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <!-- START ABOUT TEXT DESIGN AREA -->
-                <div class="col-lg-5 col-sm-12 about-image mb-4 mb-lg-0">
-                    <img src="assets/images/about/quienes-somos.jpg" alt="Quiénes Somos - VibeStyle Caps">
-                </div>
-                <div class="col-lg-7 col-sm-12">
-                    <div class="about-content-part wow fadeInUp delay-0-2s">
-                        <p>Somos una marca orgullosamente ecuatoriana nacida de nuestra pasión por la cultura urbana y el streetwear de alto nivel. Gestionamos una logística directa y transparente de drops exclusivos importados directamente desde Estados Unidos, seleccionando personalmente piezas de colección auténticas y siluetas difíciles de conseguir en el mercado local.</p>
-                        <p>Como creadores y dueños, creemos en la honestidad, la exclusividad real y la cercanía total con nuestra comunidad. Cada gorra que recibimos es verificada minuciosamente en calidad, bordados y acabados, garantizándote un servicio personalizado y envíos 100% seguros a cualquier rincón del país.</p>
-                    </div>
-                    <!-- START COUNTER DESIGN AREA -->
-                    <div class="hero-counter-area d-flex justify-content-between wow fadeInUp delay-0-4s">
-                        <div class="counter-item counter-text-wrap">
-                            <span class="count-text plus" data-speed="3000" data-stop="15">0</span>
-                            <span class="counter-title">Drops Exclusivos</span>
-                        </div>
-                        <div class="counter-item counter-text-wrap">
-                            <span class="count-text k-plus" data-speed="3000" data-stop="5">0</span>
-                            <span class="counter-title">Gorras Entregadas</span>
-                        </div>
-                        <div class="counter-item counter-text-wrap">
-                            <span class="count-text percent" data-speed="3000" data-stop="99">0</span>
-                            <span class="counter-title">Satisfacción Cliente</span>
-                        </div>
-                    </div>
-                    <!-- / END COUNTER DESIGN AREA -->
-                </div>
-                <!-- / END ABOUT TEXT DESIGN AREA -->
-            </div>
-        </div>
+    <section id="about" class="about-area" style="padding: 0; background: #ffffff;">
+        <picture>
+            <source media="(max-width: 767px)" srcset="assets/images/about/quienes-somos-movil.jpg">
+            <img src="assets/images/about/quienes-somos-banner.jpg" alt="Quiénes Somos VibeStyle" style="width: 100%; height: auto; display: block;">
+        </picture>
     </section>
     <!-- / END ABOUT DESIGN AREA -->
     <!-- START CONTACT DESIGN AREA -->
@@ -1798,7 +1838,7 @@
                 <div class="col-lg-6">
                     <div class="contact-content-part wow fadeInUp delay-0-2s text-center">
                         <p class="sub-title" style="color: #6b7280; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Atención Personalizada</p>
-                        <h2 style="color: #1a5edb; font-size: 26px; font-weight: 800; line-height: 1.35; margin-bottom: 16px;">¿Tienes dudas sobre envíos a todo el país, disponibilidad de drops o consultas sobre los modelos?</h2>
+                        <h2 style="color: #1a5edb; font-size: 26px; font-weight: 800; line-height: 1.35; margin-bottom: 16px;">¿Tienes dudas sobre envíos a todo el país, disponibilidad de drops o consultas sobre los modelos? 🇪🇨🇺🇸</h2>
                         <p style="color: #4b5563; font-size: 15px; line-height: 1.6; max-width: 500px; margin: 0 auto 24px auto;">Estamos disponibles para asesorarte en tiempo real sobre coberturas de despacho nacional, disponibilidad inmediata de drops y cualquier consulta general sobre nuestros modelos. Escríbenos directamente o síguenos en nuestras redes oficiales.</p>
                         <!-- START CONTACT SINGLEDESIGN AREA -->
                         <div class="single-contact wow fadeInUp" data-wow-delay=".6s" style="text-align: center;">
@@ -1945,6 +1985,26 @@
                     e.stopPropagation();
                 });
             }
+
+   $('.portfolio-box').each(function() {
+       $(this).magnificPopup({
+           delegate: '.vibe-gallery-link',
+           type: 'image',
+           gallery: {
+               enabled: true,
+               tCounter: '<span class="mfp-counter">%curr% de %total%</span>'
+           },
+           image: {
+               titleSrc: function(item) {
+                   var title = item.el.attr('title') || 'Gorra VibeStyle';
+                   var encodedTitle = encodeURIComponent(title);
+                   var wppUrl = 'https://wa.me/593984948519?text=Hola!%20Quiero%20pedir%20la%20gorra%20' + encodedTitle;
+                   
+                   return '<strong>' + title + '</strong> <a href="' + wppUrl + '" target="_blank" style="background:#111111; color:#ffffff; padding:6px 16px; border-radius:20px; font-size:13px; font-weight:bold; margin-left:15px; text-decoration:none; display:inline-block; border: 1px solid rgba(255,255,255,0.1);"><i class="ri-whatsapp-fill" style="color:#25D366; font-size:16px; vertical-align:middle; margin-right:3px;"></i> Pedir ahora</a>';
+               }
+           }
+       });
+   });
 
             if ($('.swiper-reviews-spotlight').length > 0) {
                 var swiperSpotlight = new Swiper('.swiper-reviews-spotlight', {
