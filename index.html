@@ -1285,8 +1285,19 @@
             margin-bottom: 40px !important; 
         }
         @media (max-width: 767px) {
+            /* 1. Eliminar la altura fija que causa el choque */
+            #services .col-xl-12 { 
+                height: auto !important; 
+                min-height: 80px !important;
+            }
+            /* 2. Forzar un colchón de espacio grande debajo del título */
             .services-area .section-title {
-                margin-bottom: 35px !important;
+                margin-bottom: 55px !important; 
+            }
+            /* 3. Reducir sutilmente el tamaño de la fuente para evitar que se rompa en 3 líneas en pantallas medianas */
+            .services-area .section-title h2 {
+                font-size: 32px !important;
+                line-height: 1.15 !important;
             }
         }
         .swiper-3d-7 {
